@@ -1,8 +1,8 @@
 setup()
 function setup(){
-    // making sure user has the requirements
+    // on load make sure sql stuff is loaded
+    // and making sure user has the requirements
     // e.g. sqlite3 (builtin) (ipython-sql)
-    // run a python script (it can be in a different process I guess)
     Jupyter.notebook.select_prev();
     let cell = Jupyter.notebook.get_selected_cell();
     let code = cell.get_text();
@@ -11,7 +11,8 @@ function setup(){
     cell.set_text(code);
 }
 function load_db(){
-    // on load make sure sql stuff is loaded
+    // for loading .db files; if it doesn't exist in the 
+    // current working directory it will get created
     let db = prompt("Enter a database file to connect to:");
     // for flexibility
     let splitted = db.split(".");
